@@ -2,10 +2,9 @@
 #include "catch.hpp"
 #include "rainha.hpp"
 
-TEST_CASE("Soluções inválidas") {
-    SECTION("Arquivo válido, porém não é a solução") {
-        REQUIRE(answer("testes/jogadateste.txt") == 0);
-    }
+// Casos de testes soluções inválidas cuja a estrutura está incorreta
+TEST_CASE("Soluções inválidas -1") {
+
     SECTION("Arquivo inválido, não é 8x8") {
         REQUIRE(answer("testes/jogadatesteerro.txt") == -1);
     }
@@ -28,6 +27,15 @@ TEST_CASE("Soluções inválidas") {
         REQUIRE(answer("testes/testeqtde3.txt") == -1);
     }
 
+     SECTION("Arquivo vazio") {
+        REQUIRE(answer("testes/arquivo_vazio.txt") == -1);
+    }
+
+}
+
+// Casos de testes soluções inválidas cuja a estrutura está correta
+TEST_CASE("Soluções inválidas - 0"){
+
     SECTION("Numero de rainhas = 8, mas nao é a solução") {
         REQUIRE(answer("testes/testeatk1.txt") == 0);
         REQUIRE(answer("testes/testeatk2.txt") == 0);
@@ -35,14 +43,14 @@ TEST_CASE("Soluções inválidas") {
         REQUIRE(answer("testes/testeatk4.txt") == 0);
         REQUIRE(answer("testes/testeatk5.txt") == 0);
         REQUIRE(answer("testes/testeatk6.txt") == 0);
+        REQUIRE(answer("testes/testeatk7.txt") == 0);
     }
-
-     SECTION("Arquivo vazio") {
-        REQUIRE(answer("testes/arquivo_vazio.txt") == -1);
+     SECTION("Arquivo válido, porém não é a solução") {
+        REQUIRE(answer("testes/jogadateste.txt") == 0);
     }
-
 }
 
+// Solução
 TEST_CASE("Soluções válidas"){
 
     SECTION("Arquivos válios"){
