@@ -1,0 +1,32 @@
+\chapter{O problema das 8 rainhas}
+\hypertarget{md__r_e_a_d_m_e}{}\label{md__r_e_a_d_m_e}\index{O problema das 8 rainhas@{O problema das 8 rainhas}}
+\label{md__r_e_a_d_m_e_autotoc_md0}%
+\Hypertarget{md__r_e_a_d_m_e_autotoc_md0}%
+ Este é o Trabalho 2 da disciplina de Métodos de Programação, um simulador do "{}problema das 8 rainhas"{}. O projeto está escrito em C++ e é desenvolvido orientado a testes (TDD)\hypertarget{md__r_e_a_d_m_e_autotoc_md1}{}\doxysection{\texorpdfstring{Requisitos}{Requisitos}}\label{md__r_e_a_d_m_e_autotoc_md1}
+
+\begin{DoxyItemize}
+\item Compilador C++ (utilizamos o g++)
+\item Make/\+Catch2
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md2}{}\doxysection{\texorpdfstring{Compilar}{Compilar}}\label{md__r_e_a_d_m_e_autotoc_md2}
+
+\begin{DoxyItemize}
+\item Para rodar os testes, basta digitar no terminal\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ make\ test}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\#\ Comandos\ úteis}
+\DoxyCodeLine{}
+\DoxyCodeLine{-\/\ Para\ limpar\ os\ arquivos\ gerados\ durante\ o\ processo\ de\ compilação:}
+
+\end{DoxyCode}
+ bash make clean
+\item Para rodar o gcov\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ make\ gcov}
+\DoxyCodeLine{}
+\DoxyCodeLine{-\/\ Executar\ o\ programa\ para\ coletar\ dados\ de\ cobertura:}
+
+\end{DoxyCode}
+ bash ./testa\+\_\+rainha
+\item Gerar os reletórios de cobertura de código\+: \`{}\`{}\`{}bash gcov \doxylink{rainha_8cpp}{rainha.\+cpp} \doxylink{testa__rainha_8cpp}{testa\+\_\+rainha.\+cpp} 
+\end{DoxyItemize}

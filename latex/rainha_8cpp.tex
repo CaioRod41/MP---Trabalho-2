@@ -1,0 +1,123 @@
+\doxysection{rainha.\+cpp File Reference}
+\hypertarget{rainha_8cpp}{}\label{rainha_8cpp}\index{rainha.cpp@{rainha.cpp}}
+{\ttfamily \#include "{}rainha.\+hpp"{}}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_position}{Position}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{rainha_8cpp_ad9969cdf73f4df166fb9fe8090226a69}{is\+Valid\+Binary\+Char}} (char c)
+\begin{DoxyCompactList}\small\item\em Verifica se um caractere é \textquotesingle{}0\textquotesingle{} ou \textquotesingle{}1\textquotesingle{}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{rainha_8cpp_a2c91299b8a5b2cb4161c263d0940b886}{is\+Valid\+Binary\+Line}} (const string \&line)
+\begin{DoxyCompactList}\small\item\em Verifica se uma linha de texto é uma linha binária válida de 8 caracteres. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{rainha_8cpp_abfcf1c9e5ad2e3473e6070eb22b0c3d5}{save\+Attacks\+To\+File}} (const string \&base\+Filename, const vector$<$ string $>$ \&attacks)
+\begin{DoxyCompactList}\small\item\em Cria um arquivo de ataque para uma entrada e salva as coordenadas. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{rainha_8cpp_aaa29fa117a938006ff06f512a1a61ab2}{is\+Binary8x8}} (const string \&filename, vector$<$ string $>$ \&attacks)
+\begin{DoxyCompactList}\small\item\em Implementação para verificar se o tabuleiro é uma solução válida para o problema das 8 rainhas. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{rainha_8cpp_a5ac64fd4f5a091a045a359ed96dee3b3}{answer}} (const string \&filename)
+\begin{DoxyCompactList}\small\item\em Função principal para verificar se um arquivo contém uma solução válida para o problema das 8 rainhas. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{rainha_8cpp_a5ac64fd4f5a091a045a359ed96dee3b3}\index{rainha.cpp@{rainha.cpp}!answer@{answer}}
+\index{answer@{answer}!rainha.cpp@{rainha.cpp}}
+\doxysubsubsection{\texorpdfstring{answer()}{answer()}}
+{\footnotesize\ttfamily \label{rainha_8cpp_a5ac64fd4f5a091a045a359ed96dee3b3} 
+int answer (\begin{DoxyParamCaption}\item[{const string \&}]{filename}{}\end{DoxyParamCaption})}
+
+
+
+Função principal para verificar se um arquivo contém uma solução válida para o problema das 8 rainhas. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & O nome do arquivo a ser verificado. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 se o arquivo contém uma solução válida para o problema das 8 rainhas, 0 se contém uma matriz válida mas não é uma solução, -\/1 se o arquivo é inválido. 
+\end{DoxyReturn}
+\Hypertarget{rainha_8cpp_aaa29fa117a938006ff06f512a1a61ab2}\index{rainha.cpp@{rainha.cpp}!isBinary8x8@{isBinary8x8}}
+\index{isBinary8x8@{isBinary8x8}!rainha.cpp@{rainha.cpp}}
+\doxysubsubsection{\texorpdfstring{isBinary8x8()}{isBinary8x8()}}
+{\footnotesize\ttfamily \label{rainha_8cpp_aaa29fa117a938006ff06f512a1a61ab2} 
+int is\+Binary8x8 (\begin{DoxyParamCaption}\item[{const string \&}]{filename}{, }\item[{vector$<$ string $>$ \&}]{attacks}{}\end{DoxyParamCaption})}
+
+
+
+Implementação para verificar se o tabuleiro é uma solução válida para o problema das 8 rainhas. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & O nome do arquivo a ser verificado. \\
+\hline
+{\em attacks} & Um vetor para armazenar as posições das rainhas que se atacam (se houver). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 se o arquivo contém uma matriz binária 8x8 válida sem ataques entre rainhas, 0 se contém uma matriz válida mas com ataques, -\/1 se o arquivo é inválido (não é 8x8 ou contém caracteres inválidos). 
+\end{DoxyReturn}
+\Hypertarget{rainha_8cpp_ad9969cdf73f4df166fb9fe8090226a69}\index{rainha.cpp@{rainha.cpp}!isValidBinaryChar@{isValidBinaryChar}}
+\index{isValidBinaryChar@{isValidBinaryChar}!rainha.cpp@{rainha.cpp}}
+\doxysubsubsection{\texorpdfstring{isValidBinaryChar()}{isValidBinaryChar()}}
+{\footnotesize\ttfamily \label{rainha_8cpp_ad9969cdf73f4df166fb9fe8090226a69} 
+bool is\+Valid\+Binary\+Char (\begin{DoxyParamCaption}\item[{char}]{c}{}\end{DoxyParamCaption})}
+
+
+
+Verifica se um caractere é \textquotesingle{}0\textquotesingle{} ou \textquotesingle{}1\textquotesingle{}. 
+
+Verifica se um caractere é um dígito binário (\textquotesingle{}0\textquotesingle{} ou \textquotesingle{}1\textquotesingle{}).
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & O caractere a ser verificado. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se o caractere é \textquotesingle{}0\textquotesingle{} ou \textquotesingle{}1\textquotesingle{}, false caso contrário. 
+\end{DoxyReturn}
+\Hypertarget{rainha_8cpp_a2c91299b8a5b2cb4161c263d0940b886}\index{rainha.cpp@{rainha.cpp}!isValidBinaryLine@{isValidBinaryLine}}
+\index{isValidBinaryLine@{isValidBinaryLine}!rainha.cpp@{rainha.cpp}}
+\doxysubsubsection{\texorpdfstring{isValidBinaryLine()}{isValidBinaryLine()}}
+{\footnotesize\ttfamily \label{rainha_8cpp_a2c91299b8a5b2cb4161c263d0940b886} 
+bool is\+Valid\+Binary\+Line (\begin{DoxyParamCaption}\item[{const string \&}]{line}{}\end{DoxyParamCaption})}
+
+
+
+Verifica se uma linha de texto é uma linha binária válida de 8 caracteres. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em line} & A linha de texto a ser verificada. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se a linha contém exatamente 8 caracteres e todos são \textquotesingle{}0\textquotesingle{} ou \textquotesingle{}1\textquotesingle{}, false caso contrário. 
+\end{DoxyReturn}
+\Hypertarget{rainha_8cpp_abfcf1c9e5ad2e3473e6070eb22b0c3d5}\index{rainha.cpp@{rainha.cpp}!saveAttacksToFile@{saveAttacksToFile}}
+\index{saveAttacksToFile@{saveAttacksToFile}!rainha.cpp@{rainha.cpp}}
+\doxysubsubsection{\texorpdfstring{saveAttacksToFile()}{saveAttacksToFile()}}
+{\footnotesize\ttfamily \label{rainha_8cpp_abfcf1c9e5ad2e3473e6070eb22b0c3d5} 
+void save\+Attacks\+To\+File (\begin{DoxyParamCaption}\item[{const string \&}]{base\+Filename}{, }\item[{const vector$<$ string $>$ \&}]{attacks}{}\end{DoxyParamCaption})}
+
+
+
+Cria um arquivo de ataque para uma entrada e salva as coordenadas. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em base\+Filename} & O nome base do arquivo de entrada. \\
+\hline
+{\em attacks} & As coordenadas das rainhas que se atacam. \\
+\hline
+\end{DoxyParams}

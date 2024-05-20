@@ -1,0 +1,20 @@
+var searchData=
+[
+  ['saveattackstofile_0',['saveAttacksToFile',['../rainha_8cpp.html#abfcf1c9e5ad2e3473e6070eb22b0c3d5',1,'rainha.cpp']]],
+  ['search_1',['Search',['../namespacecpplint.html#a515e256f8ccda50d15b9b7401f5264f7',1,'cpplint']]],
+  ['seen_5felse_2',['seen_else',['../classcpplint_1_1___preprocessor_info.html#a7587e84a1e6db34c3c94317f5a5931cc',1,'cpplint::_PreprocessorInfo']]],
+  ['seen_5fopen_5fbrace_3',['seen_open_brace',['../classcpplint_1_1___block_info.html#aa974539217437751383ad20896c974d7',1,'cpplint::_BlockInfo']]],
+  ['seenopenbrace_4',['SeenOpenBrace',['../classcpplint_1_1_nesting_state.html#aba98d984db5687df0825d005a78e6be9',1,'cpplint::NestingState']]],
+  ['setcountingstyle_5',['SetCountingStyle',['../classcpplint_1_1___cpp_lint_state.html#a6a31db7db51e0bfc0da9c28fec67bb35',1,'cpplint::_CppLintState']]],
+  ['setfilters_6',['SetFilters',['../classcpplint_1_1___cpp_lint_state.html#a27e58246c0717deb223bba71d253f930',1,'cpplint::_CppLintState']]],
+  ['setlastheader_7',['SetLastHeader',['../classcpplint_1_1___include_state.html#a77d884d3a75bb6270ca0c00981156f74',1,'cpplint::_IncludeState']]],
+  ['setoutputformat_8',['SetOutputFormat',['../classcpplint_1_1___cpp_lint_state.html#a85b3cee5d09f6703374c744a2346c0b2',1,'cpplint::_CppLintState']]],
+  ['setquiet_9',['SetQuiet',['../classcpplint_1_1___cpp_lint_state.html#a41ee16fac5605b90fbc5c9b436a0f341',1,'cpplint::_CppLintState']]],
+  ['setverboselevel_10',['SetVerboseLevel',['../classcpplint_1_1___cpp_lint_state.html#a3994cb522c90a1822ecc3b3b4db9185e',1,'cpplint::_CppLintState']]],
+  ['shouldchecknamespaceindentation_11',['ShouldCheckNamespaceIndentation',['../namespacecpplint.html#a9325611c171591900d6eeeff1daf1cb6',1,'cpplint']]],
+  ['split_12',['Split',['../classcpplint_1_1_file_info.html#a5e303a91249d059740177b183888e89a',1,'cpplint::FileInfo']]],
+  ['stack_13',['stack',['../classcpplint_1_1_nesting_state.html#a6ae9bea040f988d152922788d0d73a15',1,'cpplint::NestingState']]],
+  ['stack_5fbefore_5felse_14',['stack_before_else',['../classcpplint_1_1___preprocessor_info.html#a34a80f1f97808614b7062ba1e5bbf2b9',1,'cpplint::_PreprocessorInfo']]],
+  ['stack_5fbefore_5fif_15',['stack_before_if',['../classcpplint_1_1___preprocessor_info.html#a0681b2adca3171a495fc1eca43d245c0',1,'cpplint::_PreprocessorInfo']]],
+  ['starting_5flinenum_16',['starting_linenum',['../classcpplint_1_1___block_info.html#a81d316f03e42aebbfe0636f905c4c291',1,'cpplint._BlockInfo.starting_linenum'],['../classcpplint_1_1___class_info.html#a0c8df96999cd0c160fbb9e3c1ca0ac55',1,'cpplint._ClassInfo.starting_linenum']]]
+];
