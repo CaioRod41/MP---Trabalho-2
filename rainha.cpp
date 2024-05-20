@@ -1,10 +1,10 @@
 #include "rainha.hpp"
-#include <fstream> 
+#include <fstream>
 #include <string>
 #include <iostream>
+#include <algorithm> // Para usar a função count
 
 using std::cout;
-using std::cin;
 using std::endl;
 using std::string;
 
@@ -32,25 +32,29 @@ int isBinary8x8(const string& filename) {
     }
 
     string line;
-    int lineCount = 0;
     int validLines = 0;
+    int totalQueens = 0;
 
     while (getline(file, line)) {
         if (!isValidBinaryLine(line)) {
             cout << "Linha inválida no arquivo: " << filename << endl;
             return -1;
         }
-        ++lineCount;
-        if (lineCount == 8) {
-            validLines++;
-            lineCount = 0; // Reinicia o contador para a próxima matriz
-        }
+        validLines++;
+
+        // Conta o número de rainhas na linha
+        totalQueens += std::count(line.begin(), line.end(), '1');
     }
 
     file.close();
-    return (validLines == 8) ? 1 : -1;
-}
 
+    if (validLines != 8 || totalQueens != 8) {
+        cout << "Tabuleiro inválido: não possui 8 linhas válidas ou 8 rainhas" << endl;
+        return -1;
+    }
+
+    return 1;
+}
 
 int answer(const string& filename) {
     return isBinary8x8(filename);
