@@ -1,7 +1,7 @@
-Rainha na posição 1,2 ataca rainha na posição 1,3
-Rainha na posição 1,3 ataca rainha na posição 4,6
-Rainha na posição 1,3 ataca rainha na posição 5,3
-Rainha na posição 3,6 ataca rainha na posição 4,6
-Rainha na posição 3,6 ataca rainha na posição 4,7
-Rainha na posição 4,6 ataca rainha na posição 4,7
-Rainha na posição 5,3 ataca rainha na posição 7,1
+1,2 1,3
+1,3 4,6
+1,3 5,3
+3,6 4,6
+3,6 4,7
+4,6 4,7
+5,3 7,1

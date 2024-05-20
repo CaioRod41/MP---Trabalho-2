@@ -83,20 +83,23 @@ int isBinary8x8(const string& filename, vector<string>& attacks) {
     }
 
     // Verifica se há ataques entre as rainhas
+    bool hasAttacks = false;
     for (size_t i = 0; i < queenPositions.size(); ++i) {
         for (size_t j = i + 1; j < queenPositions.size(); ++j) {
             int rowDiff = abs(queenPositions[i].row - queenPositions[j].row);
             int colDiff = abs(queenPositions[i].col - queenPositions[j].col);
             if (rowDiff == colDiff || rowDiff == 0 || colDiff == 0) {
                 // As rainhas se atacam
-                attacks.push_back("Rainha na posição " + std::to_string(queenPositions[i].row + 1) +
-                                  "," + std::to_string(queenPositions[i].col + 1) + " ataca rainha na posição " +
-                                  std::to_string(queenPositions[j].row + 1) + "," + std::to_string(queenPositions[j].col + 1));
+                hasAttacks = true;
+                attacks.push_back(std::to_string(queenPositions[i].row + 1) + "," +
+                                  std::to_string(queenPositions[i].col + 1) + " " +
+                                  std::to_string(queenPositions[j].row + 1) + "," +
+                                  std::to_string(queenPositions[j].col + 1));
             }
         }
     }
 
-    if (!attacks.empty()) {
+    if (hasAttacks) {
         saveAttacksToFile("ataques.txt", attacks);
         return 0;
     }
