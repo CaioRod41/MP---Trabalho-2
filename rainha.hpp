@@ -1,5 +1,11 @@
+#include "rainha.hpp"
+#include <fstream>     
 #include <string>
-#include <unordered_map>
-#include <string>
+#include <iostream>
 
-int romano_para_decimal(const std::string& romano);
+using std::cout; 
+using std::cin;
+using std::endl; 
+using std::string;
+
+
