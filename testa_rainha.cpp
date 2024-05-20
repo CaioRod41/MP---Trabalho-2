@@ -28,7 +28,7 @@ TEST_CASE("Verifica o tamanho da matriz") {
         REQUIRE(answer("testes/testeqtde3.txt") == -1);
     }
 
-    SECTION("Testes de ataque") {
+    SECTION("Numero de rainhas = 8, mas nao é a solução") {
         REQUIRE(answer("testes/testeatk1.txt") == 0);
         REQUIRE(answer("testes/testeatk2.txt") == 0);
         REQUIRE(answer("testes/testeatk3.txt") == 0);
