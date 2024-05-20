@@ -1,11 +1,7 @@
-#include "rainha.hpp"
-#include <fstream>     
 #include <string>
-#include <iostream>
 
-using std::cout; 
-using std::cin;
-using std::endl; 
-using std::string;
-
+bool isValidBinaryChar(char c);
+bool isValidBinaryLine(const std::string& line);
+int isBinary8x8(const std::string& filename);
+int answer(const std::string& filename);
 
