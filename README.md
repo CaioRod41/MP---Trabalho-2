@@ -13,3 +13,25 @@ Este é o Trabalho 2 da disciplina de Métodos de Programação, um simulador do
 - Para rodar os testes, basta digitar no terminal:
     ```bash
        make test
+
+
+
+## comandos úteis
+
+- Para limpar os arquivos gerados durante o processo de compilação:
+    ```bash
+       make clean
+
+- Para rodar o gcov:
+    ```bash
+       make gcov
+
+- Executar o programa para coletar dados de cobertura:
+    ```bash
+       ./testa_rainha
+
+- Gerar os reletórios de cobertura de código:
+    ```bash
+    gcov rainha.cpp testa_rainha.cpp
+
+
