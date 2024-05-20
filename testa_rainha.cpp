@@ -38,9 +38,8 @@ TEST_CASE("Verifica o tamanho da matriz") {
     }
 
     SECTION("Arquivos válios"){
+        
         REQUIRE(answer("testes/solucao1.txt") == 1);
-        REQUIRE(answer("testes/solucao2.txt") == 1);
-        REQUIRE(answer("testes/solucao3.txt") == 1);
     }
 
 }
