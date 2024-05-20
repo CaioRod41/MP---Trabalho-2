@@ -16,17 +16,17 @@ struct Position {
     int col;
 };
 
-// caracteres validos
+// Caracteres válidos
 bool isValidBinaryChar(char c) {
     return c == '0' || c == '1';
 }
 
-//valida linha
+// Valida linha
 bool isValidBinaryLine(const string& line) {
     return line.size() == 8 && std::all_of(line.begin(), line.end(), isValidBinaryChar);
 }
 
-//cria um aruivo de ataque p uma entrada e salva as coordenadas
+// Cria um aruivo de ataque p uma entrada e salva as coordenadas
 void saveAttacksToFile(const string& baseFilename, const vector<string>& attacks) {
     size_t lastSlash = baseFilename.find_last_of("/\\");
     string shortFilename = (lastSlash == string::npos) ? baseFilename : baseFilename.substr(lastSlash + 1);
@@ -43,7 +43,7 @@ void saveAttacksToFile(const string& baseFilename, const vector<string>& attacks
     }
 }
 
-//implementação para passar nos testes 
+// Implementação para passar nos testes 
 int isBinary8x8(const string& filename, vector<string>& attacks) {
     std::ifstream file(filename);
     if (!file) {
