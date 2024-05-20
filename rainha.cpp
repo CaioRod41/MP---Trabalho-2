@@ -6,8 +6,8 @@
 #include <algorithm>
 #include <cmath>
 
-using std::cout;
-using std::endl;
+using namespace std;
+
 using std::string;
 using std::vector;
 
@@ -16,14 +16,17 @@ struct Position {
     int col;
 };
 
+// caracteres validos
 bool isValidBinaryChar(char c) {
     return c == '0' || c == '1';
 }
 
+//valida linha
 bool isValidBinaryLine(const string& line) {
     return line.size() == 8 && std::all_of(line.begin(), line.end(), isValidBinaryChar);
 }
 
+//cria um aruivo de ataque p uma entrada e salva as coordenadas
 void saveAttacksToFile(const string& baseFilename, const vector<string>& attacks) {
     size_t lastSlash = baseFilename.find_last_of("/\\");
     string shortFilename = (lastSlash == string::npos) ? baseFilename : baseFilename.substr(lastSlash + 1);
@@ -40,6 +43,7 @@ void saveAttacksToFile(const string& baseFilename, const vector<string>& attacks
     }
 }
 
+//implementação para passar nos testes 
 int isBinary8x8(const string& filename, vector<string>& attacks) {
     std::ifstream file(filename);
     if (!file) {
@@ -54,7 +58,6 @@ int isBinary8x8(const string& filename, vector<string>& attacks) {
 
     while (getline(file, line)) {
         if (!isValidBinaryLine(line)) {
-            cout << "Linha inválida no arquivo: " << filename << endl;
             return -1;
         }
         for (size_t i = 0; i < line.size(); ++i) {
@@ -67,7 +70,6 @@ int isBinary8x8(const string& filename, vector<string>& attacks) {
     }
 
     if (validLines != 8 || totalQueens != 8) {
-        cout << "Tabuleiro inválido: não possui 8 linhas válidas ou 8 rainhas" << endl;
         return -1;
     }
 
