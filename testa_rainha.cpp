@@ -3,8 +3,8 @@
 #include "rainha.hpp"
 
 TEST_CASE("Verifica o tamanho da matriz") {
-    SECTION("Arquivo válido") {
-        REQUIRE(answer("testes/jogadateste.txt") == 1);
+    SECTION("Arquivo válido, porém não é a solução") {
+        REQUIRE(answer("testes/jogadateste.txt") == 0);
     }
     SECTION("Arquivo inválido, não é 8x8") {
         REQUIRE(answer("testes/jogadatesteerro.txt") == -1);
@@ -35,6 +35,12 @@ TEST_CASE("Verifica o tamanho da matriz") {
         REQUIRE(answer("testes/testeatk4.txt") == 0);
         REQUIRE(answer("testes/testeatk5.txt") == 0);
         REQUIRE(answer("testes/testeatk6.txt") == 0);
+    }
+
+    SECTION("Arquivos válios"){
+        REQUIRE(answer("testes/solucao1.txt") == 1);
+        REQUIRE(answer("testes/solucao2.txt") == 1);
+        REQUIRE(answer("testes/solucao3.txt") == 1);
     }
 
 }
