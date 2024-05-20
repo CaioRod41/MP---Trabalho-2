@@ -1,0 +1,104 @@
+        -:    0:Source:rainha.cpp
+        -:    0:Programs:2
+        -:    1:#include "rainha.hpp"
+        -:    2:#include <fstream>
+        -:    3:#include <string>
+        -:    4:#include <iostream>
+        -:    5:#include <vector>
+        -:    6:#include <algorithm>
+        -:    7:#include <cmath>
+        -:    8:
+        -:    9:using namespace std;
+        -:   10:
+        -:   11:using std::string;
+        -:   12:using std::vector;
+        -:   13:
+        -:   14:struct Position {
+        -:   15:    int row;
+        -:   16:    int col;
+        -:   17:};
+        -:   18:
+        -:   19:// Caracteres válidos
+      893:   20:bool isValidBinaryChar(char c) {
+      893:   21:    return c == '0' || c == '1';
+        -:   22:}
+        -:   23:
+        -:   24:// Valida linha
+      112:   25:bool isValidBinaryLine(const string& line) {
+      112:   26:    return line.size() == 8 && std::all_of(line.begin(), line.end(), isValidBinaryChar);
+        -:   27:}
+        -:   28:
+        -:   29:// Cria um aruivo de ataque p uma entrada e salva as coordenadas
+        7:   30:void saveAttacksToFile(const string& baseFilename, const vector<string>& attacks) {
+        7:   31:    size_t lastSlash = baseFilename.find_last_of("/\\");
+       14:   32:    string shortFilename = (lastSlash == string::npos) ? baseFilename : baseFilename.substr(lastSlash + 1);
+       14:   33:    string outputFilename = "ataques_testes/ataque_" + shortFilename;
+        -:   34:
+       14:   35:    std::ofstream file(outputFilename);
+        7:   36:    if (!file) {
+    #####:   37:        cout << "Erro ao criar o arquivo de ataques: " << outputFilename << endl;
+    #####:   38:        return;
+        -:   39:    }
+        -:   40:
+       44:   41:    for (const string& attack : attacks) {
+       37:   42:        file << attack << endl;
+        -:   43:    }
+        -:   44:}
+        -:   45:
+        -:   46:// Implementação para passar nos testes 
+       16:   47:int isBinary8x8(const string& filename, vector<string>& attacks) {
+       32:   48:    std::ifstream file(filename);
+       16:   49:    if (!file) {
+    #####:   50:        cout << "Erro ao abrir o arquivo: " << filename << endl;
+    #####:   51:        return -1;
+        -:   52:    }
+        -:   53:
+       32:   54:    string line;
+       16:   55:    int validLines = 0;
+       16:   56:    int totalQueens = 0;
+       32:   57:    vector<Position> queenPositions;
+        -:   58:
+      238:   59:    while (getline(file, line)) {
+      112:   60:        if (!isValidBinaryLine(line)) {
+        1:   61:            return -1;
+        -:   62:        }
+      999:   63:        for (size_t i = 0; i < line.size(); ++i) {
+      888:   64:            if (line[i] == '1') {
+      161:   65:                queenPositions.push_back({validLines, static_cast<int>(i)});
+      161:   66:                totalQueens++;
+        -:   67:            }
+        -:   68:        }
+      111:   69:        validLines++;
+        -:   70:    }
+        -:   71:
+       15:   72:    if (validLines != 8 || totalQueens != 8) {
+        7:   73:        return -1;
+        -:   74:    }
+        -:   75:
+        8:   76:    bool hasAttacks = false;
+       72:   77:    for (size_t i = 0; i < queenPositions.size(); ++i) {
+      288:   78:        for (size_t j = i + 1; j < queenPositions.size(); ++j) {
+      224:   79:            int rowDiff = abs(queenPositions[i].row - queenPositions[j].row);
+      224:   80:            int colDiff = abs(queenPositions[i].col - queenPositions[j].col);
+      224:   81:            if (rowDiff == colDiff || rowDiff == 0 || colDiff == 0) {
+       37:   82:                hasAttacks = true;
+       74:   83:                attacks.push_back(std::to_string(queenPositions[i].row + 1) + "," +
+      148:   84:                                  std::to_string(queenPositions[i].col + 1) + " " +
+      148:   85:                                  std::to_string(queenPositions[j].row + 1) + "," +
+      111:   86:                                  std::to_string(queenPositions[j].col + 1));
+        -:   87:            }
+        -:   88:        }
+        -:   89:    }
+        -:   90:
+        8:   91:    if (hasAttacks) {
+        7:   92:        saveAttacksToFile(filename, attacks);
+        7:   93:        return 0;
+        -:   94:    }
+        -:   95:
+        1:   96:    return 1;
+        -:   97:}
+        -:   98:
+       16:   99:int answer(const string& filename) {
+       32:  100:    vector<string> attacks;
+       32:  101:    return isBinary8x8(filename, attacks);
+        3:  102:}
