@@ -14,7 +14,7 @@ Este é o Trabalho 2 da disciplina de Métodos de Programação, um simulador do
     ```bash
        make test
 
-## comandos úteis
+## Comandos úteis
 
 - Para limpar os arquivos gerados durante o processo de compilação:
     ```bash

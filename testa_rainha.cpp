@@ -2,7 +2,7 @@
 #include "catch.hpp"
 #include "rainha.hpp"
 
-TEST_CASE("Verifica o tamanho da matriz") {
+TEST_CASE("Soluções inválidas") {
     SECTION("Arquivo válido, porém não é a solução") {
         REQUIRE(answer("testes/jogadateste.txt") == 0);
     }
@@ -37,15 +37,18 @@ TEST_CASE("Verifica o tamanho da matriz") {
         REQUIRE(answer("testes/testeatk6.txt") == 0);
     }
 
-    SECTION("Arquivos válios"){
-        
-        REQUIRE(answer("testes/solucao1.txt") == 1);
-    }
-
      SECTION("Arquivo vazio") {
         REQUIRE(answer("testes/arquivo_vazio.txt") == -1);
     }
 
+}
+
+TEST_CASE("Soluções válidas"){
+
+    SECTION("Arquivos válios"){
+        
+        REQUIRE(answer("testes/solucao1.txt") == 1);
+    }
 }
 
 
