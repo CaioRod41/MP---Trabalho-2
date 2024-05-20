@@ -3,8 +3,10 @@
 #include "rainha.hpp"
 
 TEST_CASE("Verifica o tamanho da matriz") {
-    SECTION("Arquivo inválido, não é 8x8") {
+    SECTION("Arquivo válido") {
         REQUIRE(answer("testes/jogadateste.txt") == 1);
+    }
+    SECTION("Arquivo inválido, não é 8x8") {
         REQUIRE(answer("testes/jogadatesteerro.txt") == -1);
     }
 
@@ -21,10 +23,22 @@ TEST_CASE("Verifica o tamanho da matriz") {
     }
 
     SECTION("Arquivo inválido, o numero de rainhas deve ser 8") {
-        REQUIRE(answer("testes/testeqtd/testeqtde1.txt") == -1);
-        REQUIRE(answer("testes/testeqtd/testeqtde2.txt") == -1);
-        REQUIRE(answer("testes/testeqtd/testeqtde3.txt") == -1);
+        REQUIRE(answer("testes/testeqtde1.txt") == -1);
+        REQUIRE(answer("testes/testeqtde2.txt") == -1);
+        REQUIRE(answer("testes/testeqtde3.txt") == -1);
     }
 
-  
+    SECTION("Testes de ataque") {
+        REQUIRE(answer("testes/testeatk1.txt") == 0);
+        REQUIRE(answer("testes/testeatk2.txt") == 0);
+        REQUIRE(answer("testes/testeatk3.txt") == 0);
+        REQUIRE(answer("testes/testeatk4.txt") == 0);
+        REQUIRE(answer("testes/testeatk5.txt") == 0);
+        REQUIRE(answer("testes/testeatk6.txt") == 0);
+    }
+
 }
+
+
+
+
