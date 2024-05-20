@@ -39,6 +39,8 @@ testa_rainha: 	testa_rainha.cpp   rainha.cpp rainha.hpp rainha.o
 	g++ -std=c++11 -Wall rainha.o testa_rainha.cpp -o testa_rainha
 
 clean:
-	rm -rf *.o *.exe *.gc* 
+	del *.o *.exe *.gcda *.gcno *.gcov
+
+
 	
 	
