@@ -2,9 +2,11 @@
 #include <fstream>
 #include <string>
 #include <iostream>
-#include <vector>
-#include <algorithm>
-#include <cmath>
+
+// Biliotecas adicionais
+#include <vector> 
+#include <algorithm> 
+#include <cmath> 
 
 using namespace std;
 
@@ -74,7 +76,7 @@ int isBinary8x8(const string& filename, vector<string>& attacks) {
     }
 
     bool hasAttacks = false;
-    for (size_t i = 0; i < queenPositions.size(); ++i) {
+    for (size_t i = 0; i < queenPositions.size(); ++i) {     // Looping para percorrer linhas e colunas e identificar as rainhas
         for (size_t j = i + 1; j < queenPositions.size(); ++j) {
             int rowDiff = abs(queenPositions[i].row - queenPositions[j].row);
             int colDiff = abs(queenPositions[i].col - queenPositions[j].col);
