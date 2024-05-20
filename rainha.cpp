@@ -56,6 +56,7 @@ int isBinary8x8(const string& filename) {
     return 1;
 }
 
+
 int answer(const string& filename) {
     return isBinary8x8(filename);
 }
