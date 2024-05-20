@@ -11,6 +11,7 @@ TEST_CASE("Soluções inválidas -1") {
 
     SECTION("Arquivo inválido, não contém apenas 0 e 1") {
         REQUIRE(answer("testes/jogadateste2.txt") == -1);
+        REQUIRE(answer("testes/testescaracter.txt") == -1);
     }
 
     SECTION("Arquivo inválido, todos os números são 0") {
@@ -30,6 +31,7 @@ TEST_CASE("Soluções inválidas -1") {
      SECTION("Arquivo vazio") {
         REQUIRE(answer("testes/arquivo_vazio.txt") == -1);
     }
+
 
 }
 
