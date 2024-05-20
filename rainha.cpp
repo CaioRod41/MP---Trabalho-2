@@ -3,8 +3,8 @@
 #include <string>
 #include <iostream>
 #include <vector>
-#include <algorithm> // Para usar a função count
-#include <cmath> // Para usar a função abs
+#include <algorithm> 
+#include <cmath> 
 
 using std::cout;
 using std::endl;
@@ -32,10 +32,16 @@ bool isValidBinaryLine(const string& line) {
     return true;
 }
 
-void saveAttacksToFile(const string& filename, const vector<string>& attacks) {
-    std::ofstream file(filename);
+void saveAttacksToFile(const string& baseFilename, const vector<string>& attacks) {
+
+    size_t lastSlash = baseFilename.find_last_of("/\\");
+    string shortFilename = (lastSlash == string::npos) ? baseFilename : baseFilename.substr(lastSlash + 1);
+
+    string outputFilename = "ataques_testes/ataque_" + shortFilename;
+
+    std::ofstream file(outputFilename);
     if (!file) {
-        cout << "Erro ao criar o arquivo de ataques: " << filename << endl;
+        cout << "Erro ao criar o arquivo de ataques: " << outputFilename << endl;
         return;
     }
 
@@ -56,9 +62,8 @@ int isBinary8x8(const string& filename, vector<string>& attacks) {
     string line;
     int validLines = 0;
     int totalQueens = 0;
-    vector<Position> queenPositions; // Armazena as posições das rainhas
+    vector<Position> queenPositions; 
 
-    // Leitura do arquivo e verificação das linhas
     while (getline(file, line)) {
         if (!isValidBinaryLine(line)) {
             cout << "Linha inválida no arquivo: " << filename << endl;
@@ -66,7 +71,7 @@ int isBinary8x8(const string& filename, vector<string>& attacks) {
         }
         validLines++;
 
-        // Conta o número de rainhas na linha e armazena suas posições
+    
         for (size_t i = 0; i < line.size(); ++i) {
             if (line[i] == '1') {
                 totalQueens++;
@@ -82,14 +87,14 @@ int isBinary8x8(const string& filename, vector<string>& attacks) {
         return -1;
     }
 
-    // Verifica se há ataques entre as rainhas
+ 
     bool hasAttacks = false;
     for (size_t i = 0; i < queenPositions.size(); ++i) {
         for (size_t j = i + 1; j < queenPositions.size(); ++j) {
             int rowDiff = abs(queenPositions[i].row - queenPositions[j].row);
             int colDiff = abs(queenPositions[i].col - queenPositions[j].col);
             if (rowDiff == colDiff || rowDiff == 0 || colDiff == 0) {
-                // As rainhas se atacam
+                
                 hasAttacks = true;
                 attacks.push_back(std::to_string(queenPositions[i].row + 1) + "," +
                                   std::to_string(queenPositions[i].col + 1) + " " +
@@ -100,7 +105,7 @@ int isBinary8x8(const string& filename, vector<string>& attacks) {
     }
 
     if (hasAttacks) {
-        saveAttacksToFile("ataques.txt", attacks);
+        saveAttacksToFile(filename, attacks);
         return 0;
     }
 
