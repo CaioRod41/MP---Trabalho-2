@@ -3,8 +3,8 @@
 #include <string>
 #include <iostream>
 #include <vector>
-#include <algorithm> 
-#include <cmath> 
+#include <algorithm>
+#include <cmath>
 
 using std::cout;
 using std::endl;
@@ -21,22 +21,12 @@ bool isValidBinaryChar(char c) {
 }
 
 bool isValidBinaryLine(const string& line) {
-    if (line.size() != 8) {
-        return false;
-    }
-    for (char c : line) {
-        if (!isValidBinaryChar(c)) {
-            return false;
-        }
-    }
-    return true;
+    return line.size() == 8 && std::all_of(line.begin(), line.end(), isValidBinaryChar);
 }
 
 void saveAttacksToFile(const string& baseFilename, const vector<string>& attacks) {
-
     size_t lastSlash = baseFilename.find_last_of("/\\");
     string shortFilename = (lastSlash == string::npos) ? baseFilename : baseFilename.substr(lastSlash + 1);
-
     string outputFilename = "ataques_testes/ataque_" + shortFilename;
 
     std::ofstream file(outputFilename);
@@ -48,8 +38,6 @@ void saveAttacksToFile(const string& baseFilename, const vector<string>& attacks
     for (const string& attack : attacks) {
         file << attack << endl;
     }
-
-    file.close();
 }
 
 int isBinary8x8(const string& filename, vector<string>& attacks) {
@@ -62,39 +50,33 @@ int isBinary8x8(const string& filename, vector<string>& attacks) {
     string line;
     int validLines = 0;
     int totalQueens = 0;
-    vector<Position> queenPositions; 
+    vector<Position> queenPositions;
 
     while (getline(file, line)) {
         if (!isValidBinaryLine(line)) {
             cout << "Linha inválida no arquivo: " << filename << endl;
             return -1;
         }
-        validLines++;
-
-    
         for (size_t i = 0; i < line.size(); ++i) {
             if (line[i] == '1') {
+                queenPositions.push_back({validLines, static_cast<int>(i)});
                 totalQueens++;
-                queenPositions.push_back({validLines - 1, static_cast<int>(i)});
             }
         }
+        validLines++;
     }
-
-    file.close();
 
     if (validLines != 8 || totalQueens != 8) {
         cout << "Tabuleiro inválido: não possui 8 linhas válidas ou 8 rainhas" << endl;
         return -1;
     }
 
- 
     bool hasAttacks = false;
     for (size_t i = 0; i < queenPositions.size(); ++i) {
         for (size_t j = i + 1; j < queenPositions.size(); ++j) {
             int rowDiff = abs(queenPositions[i].row - queenPositions[j].row);
             int colDiff = abs(queenPositions[i].col - queenPositions[j].col);
             if (rowDiff == colDiff || rowDiff == 0 || colDiff == 0) {
-                
                 hasAttacks = true;
                 attacks.push_back(std::to_string(queenPositions[i].row + 1) + "," +
                                   std::to_string(queenPositions[i].col + 1) + " " +
